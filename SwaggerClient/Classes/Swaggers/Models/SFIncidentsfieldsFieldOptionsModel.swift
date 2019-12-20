@@ -8,11 +8,11 @@
 import Foundation
 
 public struct SFIncidentsfieldsFieldOptionsModel: Codable {
-    public var key: String?
-    public var visible: Bool?
+  public var key: String?
+  public var visible: Bool?
 
-    public init(key: String?, visible: Bool?) {
-        self.key = key
-        self.visible = visible
-    }
+  public init(key: String?, visible: Bool?) {
+    self.key = key
+    self.visible = visible
+  }
 }

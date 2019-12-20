@@ -9,75 +9,75 @@ import Alamofire
 import Foundation
 
 open class ProductsAPI {
-    /**
+  /**
 
-     - parameter key: (path) Product Key
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getProductById(key: String, completion: @escaping ((_ data: SFInlineResponse20013Model?, _ error: Error?) -> Void)) {
-        getProductByIdWithRequestBuilder(key: key).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
+   - parameter key: (path) Product Key
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func getProductById(key: String, completion: @escaping ((_ data: SFInlineResponse20013Model?, _ error: Error?) -> Void)) {
+    getProductByIdWithRequestBuilder(key: key).execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
-        - GET /products/{key}
-        - Returns an product by id.
-        - examples: [{contentType=application/json, example={
-     "path" : "path",
-     "parentName" : "parentName",
-     "public" : true,
-     "isActive" : true,
-     "key" : "key",
-     "parentId" : 0,
-     "order" : 6
-     }}]
+  /**
+      - GET /products/{key}
+      - Returns an product by id.
+      - examples: [{contentType=application/json, example={
+   "path" : "path",
+   "parentName" : "parentName",
+   "public" : true,
+   "isActive" : true,
+   "key" : "key",
+   "parentId" : 0,
+   "order" : 6
+   }}]
 
-        - parameter key: (path) Product Key
+      - parameter key: (path) Product Key
 
-        - returns: RequestBuilder<SFInlineResponse20013Model>
-     */
-    open class func getProductByIdWithRequestBuilder(key: String) -> RequestBuilder<SFInlineResponse20013Model> {
-        var path = "/products/{key}"
-        let keyPreEscape = "\(key)"
-        let keyPostEscape = keyPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{key}", with: keyPostEscape, options: .literal, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+      - returns: RequestBuilder<SFInlineResponse20013Model>
+   */
+  open class func getProductByIdWithRequestBuilder(key: String) -> RequestBuilder<SFInlineResponse20013Model> {
+    var path = "/products/{key}"
+    let keyPreEscape = "\(key)"
+    let keyPostEscape = keyPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+    path = path.replacingOccurrences(of: "{key}", with: keyPostEscape, options: .literal, range: nil)
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters: [String: Any]? = nil
 
-        let url = URLComponents(string: URLString)
+    let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<SFInlineResponse20013Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+    let requestBuilder: RequestBuilder<SFInlineResponse20013Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
+    return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
+  }
+
+  /**
+
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func getProducts(completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
+    getProductsWithRequestBuilder().execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
+  /**
+   - GET /products
+   - Return all catergories
+   - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getProducts(completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
-        getProductsWithRequestBuilder().execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
+   - returns: RequestBuilder<[Any]>
+   */
+  open class func getProductsWithRequestBuilder() -> RequestBuilder<[Any]> {
+    let path = "/products"
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters: [String: Any]? = nil
 
-    /**
-     - GET /products
-     - Return all catergories
-     - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
+    let url = URLComponents(string: URLString)
 
-     - returns: RequestBuilder<[Any]>
-     */
-    open class func getProductsWithRequestBuilder() -> RequestBuilder<[Any]> {
-        let path = "/products"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+    let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
-    }
+    return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
+  }
 }

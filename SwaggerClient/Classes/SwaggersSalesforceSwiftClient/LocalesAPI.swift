@@ -9,38 +9,38 @@ import Alamofire
 import Foundation
 
 open class LocalesAPI {
-    /**
+  /**
 
-     - parameter locale: (query) Two-letter language code ISO 639-1 code. If objects in response have any associated Localizations, the objects will also return fields with localized text. Depending on internal configuration, a default may be set.  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getLocales(locale: String? = nil, completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
-        getLocalesWithRequestBuilder(locale: locale).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
+   - parameter locale: (query) Two-letter language code ISO 639-1 code. If objects in response have any associated Localizations, the objects will also return fields with localized text. Depending on internal configuration, a default may be set.  (optional)
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func getLocales(locale: String? = nil, completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
+    getLocalesWithRequestBuilder(locale: locale).execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
-     - GET /locales
-     - Return all locales
-     - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
+  /**
+   - GET /locales
+   - Return all locales
+   - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
 
-     - parameter locale: (query) Two-letter language code ISO 639-1 code. If objects in response have any associated Localizations, the objects will also return fields with localized text. Depending on internal configuration, a default may be set.  (optional)
+   - parameter locale: (query) Two-letter language code ISO 639-1 code. If objects in response have any associated Localizations, the objects will also return fields with localized text. Depending on internal configuration, a default may be set.  (optional)
 
-     - returns: RequestBuilder<[Any]>
-     */
-    open class func getLocalesWithRequestBuilder(locale: String? = nil) -> RequestBuilder<[Any]> {
-        let path = "/locales"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+   - returns: RequestBuilder<[Any]>
+   */
+  open class func getLocalesWithRequestBuilder(locale: String? = nil) -> RequestBuilder<[Any]> {
+    let path = "/locales"
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters: [String: Any]? = nil
 
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "locale": locale,
-        ])
+    var url = URLComponents(string: URLString)
+    url?.queryItems = APIHelper.mapValuesToQueryItems([
+      "locale": locale
+    ])
 
-        let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+    let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
-    }
+    return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
+  }
 }

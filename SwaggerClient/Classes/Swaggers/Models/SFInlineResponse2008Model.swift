@@ -8,15 +8,15 @@
 import Foundation
 
 public struct SFInlineResponse2008Model: Codable {
-    public var metricValueName: String?
-    public var value: Double?
-    public var timestamp: String?
-    public var instanceKey: String?
+  public var metricValueName: String?
+  public var value: Double?
+  public var timestamp: String?
+  public var instanceKey: String?
 
-    public init(metricValueName: String?, value: Double?, timestamp: String?, instanceKey: String?) {
-        self.metricValueName = metricValueName
-        self.value = value
-        self.timestamp = timestamp
-        self.instanceKey = instanceKey
-    }
+  public init(metricValueName: String?, value: Double?, timestamp: String?, instanceKey: String?) {
+    self.metricValueName = metricValueName
+    self.value = value
+    self.timestamp = timestamp
+    self.instanceKey = instanceKey
+  }
 }

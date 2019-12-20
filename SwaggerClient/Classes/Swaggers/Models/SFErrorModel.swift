@@ -8,9 +8,9 @@
 import Foundation
 
 public struct SFErrorModel: Codable {
-    public var message: String?
+  public var message: String?
 
-    public init(message: String?) {
-        self.message = message
-    }
+  public init(message: String?) {
+    self.message = message
+  }
 }

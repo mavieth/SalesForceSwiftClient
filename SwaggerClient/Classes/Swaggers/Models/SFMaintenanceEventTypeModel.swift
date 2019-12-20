@@ -8,9 +8,9 @@
 import Foundation
 
 public struct SFMaintenanceEventTypeModel: Codable {
-    public var key: String?
+  public var key: String?
 
-    public init(key: String?) {
-        self.key = key
-    }
+  public init(key: String?) {
+    self.key = key
+  }
 }

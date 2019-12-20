@@ -8,11 +8,11 @@
 import Foundation
 
 public struct SFInlineResponse2003Model: Codable {
-    public var key: String?
-    public var severity: String?
+  public var key: String?
+  public var severity: String?
 
-    public init(key: String?, severity: String?) {
-        self.key = key
-        self.severity = severity
-    }
+  public init(key: String?, severity: String?) {
+    self.key = key
+    self.severity = severity
+  }
 }

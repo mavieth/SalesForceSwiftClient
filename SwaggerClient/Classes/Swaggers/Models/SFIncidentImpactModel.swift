@@ -8,31 +8,31 @@
 import Foundation
 
 public struct SFIncidentImpactModel: Codable {
-    public var _id: Int?
-    public var startTime: String
-    public var serviceIssue: String?
-    public var endUserImpact: String?
-    public var type: String
-    public var createdAt: String?
-    public var updatedAt: String?
+  public var _id: Int?
+  public var startTime: String
+  public var serviceIssue: String?
+  public var endUserImpact: String?
+  public var type: String
+  public var createdAt: String?
+  public var updatedAt: String?
 
-    public init(_id: Int?, startTime: String, serviceIssue: String?, endUserImpact: String?, type: String, createdAt: String?, updatedAt: String?) {
-        self._id = _id
-        self.startTime = startTime
-        self.serviceIssue = serviceIssue
-        self.endUserImpact = endUserImpact
-        self.type = type
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
-    }
+  public init(_id: Int?, startTime: String, serviceIssue: String?, endUserImpact: String?, type: String, createdAt: String?, updatedAt: String?) {
+    self._id = _id
+    self.startTime = startTime
+    self.serviceIssue = serviceIssue
+    self.endUserImpact = endUserImpact
+    self.type = type
+    self.createdAt = createdAt
+    self.updatedAt = updatedAt
+  }
 
-    public enum CodingKeys: String, CodingKey {
-        case _id = "id"
-        case startTime
-        case serviceIssue
-        case endUserImpact
-        case type
-        case createdAt
-        case updatedAt
-    }
+  public enum CodingKeys: String, CodingKey {
+    case _id = "id"
+    case startTime
+    case serviceIssue
+    case endUserImpact
+    case type
+    case createdAt
+    case updatedAt
+  }
 }

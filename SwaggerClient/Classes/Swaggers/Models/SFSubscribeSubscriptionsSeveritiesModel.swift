@@ -8,13 +8,13 @@
 import Foundation
 
 public struct SFSubscribeSubscriptionsSeveritiesModel: Codable {
-    public var major: Bool?
-    public var minor: Bool?
-    public var maintenances: Bool?
+  public var major: Bool?
+  public var minor: Bool?
+  public var maintenances: Bool?
 
-    public init(major: Bool?, minor: Bool?, maintenances: Bool?) {
-        self.major = major
-        self.minor = minor
-        self.maintenances = maintenances
-    }
+  public init(major: Bool?, minor: Bool?, maintenances: Bool?) {
+    self.major = major
+    self.minor = minor
+    self.maintenances = maintenances
+  }
 }

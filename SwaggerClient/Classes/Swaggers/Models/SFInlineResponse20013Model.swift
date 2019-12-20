@@ -8,31 +8,31 @@
 import Foundation
 
 public struct SFInlineResponse20013Model: Codable {
-    public var key: String?
-    public var parentId: Int?
-    public var parentName: String?
-    public var order: Int?
-    public var path: String?
-    public var _public: Bool?
-    public var isActive: Bool?
+  public var key: String?
+  public var parentId: Int?
+  public var parentName: String?
+  public var order: Int?
+  public var path: String?
+  public var _public: Bool?
+  public var isActive: Bool?
 
-    public init(key: String?, parentId: Int?, parentName: String?, order: Int?, path: String?, _public: Bool?, isActive: Bool?) {
-        self.key = key
-        self.parentId = parentId
-        self.parentName = parentName
-        self.order = order
-        self.path = path
-        self._public = _public
-        self.isActive = isActive
-    }
+  public init(key: String?, parentId: Int?, parentName: String?, order: Int?, path: String?, _public: Bool?, isActive: Bool?) {
+    self.key = key
+    self.parentId = parentId
+    self.parentName = parentName
+    self.order = order
+    self.path = path
+    self._public = _public
+    self.isActive = isActive
+  }
 
-    public enum CodingKeys: String, CodingKey {
-        case key
-        case parentId
-        case parentName
-        case order
-        case path
-        case _public = "public"
-        case isActive
-    }
+  public enum CodingKeys: String, CodingKey {
+    case key
+    case parentId
+    case parentName
+    case order
+    case path
+    case _public = "public"
+    case isActive
+  }
 }

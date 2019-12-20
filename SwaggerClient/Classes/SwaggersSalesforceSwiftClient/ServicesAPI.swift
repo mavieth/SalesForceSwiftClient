@@ -9,38 +9,38 @@ import Alamofire
 import Foundation
 
 open class ServicesAPI {
-    /**
+  /**
 
-     - parameter locale: (query) Two-letter language code ISO 639-1 code. If objects in response have any associated Localizations, the objects will also return fields with localized text. Depending on internal configuration, a default may be set.  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getServices(locale: String? = nil, completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
-        getServicesWithRequestBuilder(locale: locale).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
+   - parameter locale: (query) Two-letter language code ISO 639-1 code. If objects in response have any associated Localizations, the objects will also return fields with localized text. Depending on internal configuration, a default may be set.  (optional)
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func getServices(locale: String? = nil, completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
+    getServicesWithRequestBuilder(locale: locale).execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
-     - GET /services
-     - Return all locales
-     - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
+  /**
+   - GET /services
+   - Return all locales
+   - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
 
-     - parameter locale: (query) Two-letter language code ISO 639-1 code. If objects in response have any associated Localizations, the objects will also return fields with localized text. Depending on internal configuration, a default may be set.  (optional)
+   - parameter locale: (query) Two-letter language code ISO 639-1 code. If objects in response have any associated Localizations, the objects will also return fields with localized text. Depending on internal configuration, a default may be set.  (optional)
 
-     - returns: RequestBuilder<[Any]>
-     */
-    open class func getServicesWithRequestBuilder(locale: String? = nil) -> RequestBuilder<[Any]> {
-        let path = "/services"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+   - returns: RequestBuilder<[Any]>
+   */
+  open class func getServicesWithRequestBuilder(locale: String? = nil) -> RequestBuilder<[Any]> {
+    let path = "/services"
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters: [String: Any]? = nil
 
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "locale": locale,
-        ])
+    var url = URLComponents(string: URLString)
+    url?.queryItems = APIHelper.mapValuesToQueryItems([
+      "locale": locale
+    ])
 
-        let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+    let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
-    }
+    return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
+  }
 }

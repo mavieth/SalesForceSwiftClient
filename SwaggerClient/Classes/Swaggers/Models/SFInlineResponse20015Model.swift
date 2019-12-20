@@ -8,10 +8,10 @@
 import Foundation
 
 public struct SFInlineResponse20015Model: Codable {
-    /** Email Address to Send Link to */
-    public var emailAddress: String?
+  /** Email Address to Send Link to */
+  public var emailAddress: String?
 
-    public init(emailAddress: String?) {
-        self.emailAddress = emailAddress
-    }
+  public init(emailAddress: String?) {
+    self.emailAddress = emailAddress
+  }
 }

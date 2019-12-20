@@ -8,19 +8,19 @@
 import Foundation
 
 public struct SFInlineResponse2002Model: Codable {
-    public var _id: Int?
-    public var attribute: String
-    public var fieldOptions: [SFIncidentsfieldsFieldOptionsModel]?
+  public var _id: Int?
+  public var attribute: String
+  public var fieldOptions: [SFIncidentsfieldsFieldOptionsModel]?
 
-    public init(_id: Int?, attribute: String, fieldOptions: [SFIncidentsfieldsFieldOptionsModel]?) {
-        self._id = _id
-        self.attribute = attribute
-        self.fieldOptions = fieldOptions
-    }
+  public init(_id: Int?, attribute: String, fieldOptions: [SFIncidentsfieldsFieldOptionsModel]?) {
+    self._id = _id
+    self.attribute = attribute
+    self.fieldOptions = fieldOptions
+  }
 
-    public enum CodingKeys: String, CodingKey {
-        case _id = "id"
-        case attribute
-        case fieldOptions = "FieldOptions"
-    }
+  public enum CodingKeys: String, CodingKey {
+    case _id = "id"
+    case attribute
+    case fieldOptions = "FieldOptions"
+  }
 }

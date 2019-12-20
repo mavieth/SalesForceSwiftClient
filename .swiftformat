@@ -1,0 +1,35 @@
+--allman false
+--binarygrouping none
+--closingparen balanced
+--commas inline
+--conflictmarkers reject
+--decimalgrouping none
+--elseposition same-line
+--empty void
+--exponentcase lowercase
+--exponentgrouping disabled
+--fractiongrouping disabled
+--fragment false
+--header ignore
+--hexgrouping none
+--hexliteralcase lowercase
+--ifdef no-indent
+--importgrouping alphabetized
+--indent 2
+--indentcase false
+--linebreaks lf
+--maxwidth none
+--octalgrouping none
+--operatorfunc spaced
+--patternlet inline
+--ranges no-space
+--self remove
+--selfrequired 
+--semicolons inline
+--stripunusedargs always
+--tabwidth unspecified
+--trailingclosures 
+--trimwhitespace always
+--wraparguments preserve
+--wrapcollections before-first
+--xcodeindentation disabled

@@ -8,23 +8,23 @@
 import Foundation
 
 public struct SFInstanceModel: Codable {
-    public var key: String
-    public var location: String?
-    public var environment: String?
-    public var releaseVersion: String?
-    public var releaseNumber: String?
-    public var isActive: Bool?
-    public var serviceKeys: [String]?
-    public var tags: [SFTagModel]?
+  public var key: String
+  public var location: String?
+  public var environment: String?
+  public var releaseVersion: String?
+  public var releaseNumber: String?
+  public var isActive: Bool?
+  public var serviceKeys: [String]?
+  public var tags: [SFTagModel]?
 
-    public init(key: String, location: String?, environment: String?, releaseVersion: String?, releaseNumber: String?, isActive: Bool?, serviceKeys: [String]?, tags: [SFTagModel]?) {
-        self.key = key
-        self.location = location
-        self.environment = environment
-        self.releaseVersion = releaseVersion
-        self.releaseNumber = releaseNumber
-        self.isActive = isActive
-        self.serviceKeys = serviceKeys
-        self.tags = tags
-    }
+  public init(key: String, location: String?, environment: String?, releaseVersion: String?, releaseNumber: String?, isActive: Bool?, serviceKeys: [String]?, tags: [SFTagModel]?) {
+    self.key = key
+    self.location = location
+    self.environment = environment
+    self.releaseVersion = releaseVersion
+    self.releaseNumber = releaseNumber
+    self.isActive = isActive
+    self.serviceKeys = serviceKeys
+    self.tags = tags
+  }
 }

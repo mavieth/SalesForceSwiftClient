@@ -9,487 +9,487 @@ import Alamofire
 import Foundation
 
 open class SubscribersAPI {
-    /**
-     Deletes a Subscription for the User.
+  /**
+   Deletes a Subscription for the User.
 
-     - parameter _id: (path) Subscription ID
-     - parameter token: (query) Subscriber Token
-     - parameter body: (body) Updated Subscriber
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func deleteSubscriptionWithToken(_id: String, token: String, body: SFBody3Model, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
-        deleteSubscriptionWithTokenWithRequestBuilder(_id: _id, token: token, body: body).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
+   - parameter _id: (path) Subscription ID
+   - parameter token: (query) Subscriber Token
+   - parameter body: (body) Updated Subscriber
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func deleteSubscriptionWithToken(_id: String, token: String, body: SFBody3Model, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
+    deleteSubscriptionWithTokenWithRequestBuilder(_id: _id, token: token, body: body).execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
-        Deletes a Subscription for the User.
-        - DELETE /subscribers/subscriptions/{id}
-        - examples: [{contentType=application/json, example={
-     "createdAt" : "createdAt",
-     "emailAddress" : "emailAddress",
-     "generalMessageEmailSubscribed" : true,
-     "subscription" : [ {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+  /**
+      Deletes a Subscription for the User.
+      - DELETE /subscribers/subscriptions/{id}
+      - examples: [{contentType=application/json, example={
+   "createdAt" : "createdAt",
+   "emailAddress" : "emailAddress",
+   "generalMessageEmailSubscribed" : true,
+   "subscription" : [ {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     }, {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   }, {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     } ],
-     "locale" : "locale",
-     "isActive" : true,
-     "updatedAt" : "updatedAt"
-     }}]
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   } ],
+   "locale" : "locale",
+   "isActive" : true,
+   "updatedAt" : "updatedAt"
+   }}]
 
-        - parameter _id: (path) Subscription ID
-        - parameter token: (query) Subscriber Token
-        - parameter body: (body) Updated Subscriber
+      - parameter _id: (path) Subscription ID
+      - parameter token: (query) Subscriber Token
+      - parameter body: (body) Updated Subscriber
 
-        - returns: RequestBuilder<SFInlineResponse20014Model>
-     */
-    open class func deleteSubscriptionWithTokenWithRequestBuilder(_id: String, token: String, body: SFBody3Model) -> RequestBuilder<SFInlineResponse20014Model> {
-        var path = "/subscribers/subscriptions/{id}"
-        let _idPreEscape = "\(_id)"
-        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+      - returns: RequestBuilder<SFInlineResponse20014Model>
+   */
+  open class func deleteSubscriptionWithTokenWithRequestBuilder(_id: String, token: String, body: SFBody3Model) -> RequestBuilder<SFInlineResponse20014Model> {
+    var path = "/subscribers/subscriptions/{id}"
+    let _idPreEscape = "\(_id)"
+    let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+    path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
 
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "token": token,
-        ])
+    var url = URLComponents(string: URLString)
+    url?.queryItems = APIHelper.mapValuesToQueryItems([
+      "token": token
+    ])
 
-        let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+    let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: url?.string ?? URLString, parameters: parameters, isBody: true)
+    return requestBuilder.init(method: "DELETE", URLString: url?.string ?? URLString, parameters: parameters, isBody: true)
+  }
+
+  /**
+   Retrieve Subscriber
+
+   - parameter token: (query) Subscriber Token
+   - parameter normalize: (query) Subscriber Token (optional, default to false)
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func getSubscriberWithToken(token: String, normalize: Bool? = nil, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
+    getSubscriberWithTokenWithRequestBuilder(token: token, normalize: normalize).execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
-     Retrieve Subscriber
-
-     - parameter token: (query) Subscriber Token
-     - parameter normalize: (query) Subscriber Token (optional, default to false)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getSubscriberWithToken(token: String, normalize: Bool? = nil, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
-        getSubscriberWithTokenWithRequestBuilder(token: token, normalize: normalize).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
-
-    /**
-        Retrieve Subscriber
-        - GET /subscribers
-        - Returns subscriber and subscription using token
-        - examples: [{contentType=application/json, example={
-     "createdAt" : "createdAt",
-     "emailAddress" : "emailAddress",
-     "generalMessageEmailSubscribed" : true,
-     "subscription" : [ {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+  /**
+      Retrieve Subscriber
+      - GET /subscribers
+      - Returns subscriber and subscription using token
+      - examples: [{contentType=application/json, example={
+   "createdAt" : "createdAt",
+   "emailAddress" : "emailAddress",
+   "generalMessageEmailSubscribed" : true,
+   "subscription" : [ {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     }, {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   }, {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     } ],
-     "locale" : "locale",
-     "isActive" : true,
-     "updatedAt" : "updatedAt"
-     }}]
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   } ],
+   "locale" : "locale",
+   "isActive" : true,
+   "updatedAt" : "updatedAt"
+   }}]
 
-        - parameter token: (query) Subscriber Token
-        - parameter normalize: (query) Subscriber Token (optional, default to false)
+      - parameter token: (query) Subscriber Token
+      - parameter normalize: (query) Subscriber Token (optional, default to false)
 
-        - returns: RequestBuilder<SFInlineResponse20014Model>
-     */
-    open class func getSubscriberWithTokenWithRequestBuilder(token: String, normalize: Bool? = nil) -> RequestBuilder<SFInlineResponse20014Model> {
-        let path = "/subscribers"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String: Any]? = nil
+      - returns: RequestBuilder<SFInlineResponse20014Model>
+   */
+  open class func getSubscriberWithTokenWithRequestBuilder(token: String, normalize: Bool? = nil) -> RequestBuilder<SFInlineResponse20014Model> {
+    let path = "/subscribers"
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters: [String: Any]? = nil
 
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "token": token,
-            "normalize": normalize,
-        ])
+    var url = URLComponents(string: URLString)
+    url?.queryItems = APIHelper.mapValuesToQueryItems([
+      "token": token,
+      "normalize": normalize
+    ])
 
-        let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+    let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
+    return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
+  }
+
+  /**
+   Update Subscriber
+
+   - parameter token: (query) Subscriber Token
+   - parameter body: (body) Updated Subscriber
+   - parameter xSendNotification: (header) Notify subscribers about event. Automatically set using  (optional, default to send)
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func patchSubscriberWithToken(token: String, body: SFBody1Model, xSendNotification: String? = nil, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
+    patchSubscriberWithTokenWithRequestBuilder(token: token, body: body, xSendNotification: xSendNotification).execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
-     Update Subscriber
-
-     - parameter token: (query) Subscriber Token
-     - parameter body: (body) Updated Subscriber
-     - parameter xSendNotification: (header) Notify subscribers about event. Automatically set using  (optional, default to send)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func patchSubscriberWithToken(token: String, body: SFBody1Model, xSendNotification: String? = nil, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
-        patchSubscriberWithTokenWithRequestBuilder(token: token, body: body, xSendNotification: xSendNotification).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
-
-    /**
-        Update Subscriber
-        - PATCH /subscribers
-        - Update subscriber using token
-        - examples: [{contentType=application/json, example={
-     "createdAt" : "createdAt",
-     "emailAddress" : "emailAddress",
-     "generalMessageEmailSubscribed" : true,
-     "subscription" : [ {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+  /**
+      Update Subscriber
+      - PATCH /subscribers
+      - Update subscriber using token
+      - examples: [{contentType=application/json, example={
+   "createdAt" : "createdAt",
+   "emailAddress" : "emailAddress",
+   "generalMessageEmailSubscribed" : true,
+   "subscription" : [ {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     }, {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   }, {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     } ],
-     "locale" : "locale",
-     "isActive" : true,
-     "updatedAt" : "updatedAt"
-     }}]
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   } ],
+   "locale" : "locale",
+   "isActive" : true,
+   "updatedAt" : "updatedAt"
+   }}]
 
-        - parameter token: (query) Subscriber Token
-        - parameter body: (body) Updated Subscriber
-        - parameter xSendNotification: (header) Notify subscribers about event. Automatically set using  (optional, default to send)
+      - parameter token: (query) Subscriber Token
+      - parameter body: (body) Updated Subscriber
+      - parameter xSendNotification: (header) Notify subscribers about event. Automatically set using  (optional, default to send)
 
-        - returns: RequestBuilder<SFInlineResponse20014Model>
-     */
-    open class func patchSubscriberWithTokenWithRequestBuilder(token: String, body: SFBody1Model, xSendNotification: String? = nil) -> RequestBuilder<SFInlineResponse20014Model> {
-        let path = "/subscribers"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+      - returns: RequestBuilder<SFInlineResponse20014Model>
+   */
+  open class func patchSubscriberWithTokenWithRequestBuilder(token: String, body: SFBody1Model, xSendNotification: String? = nil) -> RequestBuilder<SFInlineResponse20014Model> {
+    let path = "/subscribers"
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
 
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "token": token,
-        ])
-        let nillableHeaders: [String: Any?] = [
-            "X-Send-Notification": xSendNotification,
-        ]
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+    var url = URLComponents(string: URLString)
+    url?.queryItems = APIHelper.mapValuesToQueryItems([
+      "token": token
+    ])
+    let nillableHeaders: [String: Any?] = [
+      "X-Send-Notification": xSendNotification
+    ]
+    let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+    let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PATCH", URLString: url?.string ?? URLString, parameters: parameters, isBody: true, headers: headerParameters)
+    return requestBuilder.init(method: "PATCH", URLString: url?.string ?? URLString, parameters: parameters, isBody: true, headers: headerParameters)
+  }
+
+  /**
+   Updates a Subscription for the User.
+
+   - parameter _id: (path) Subscription ID
+   - parameter token: (query) Subscriber Token
+   - parameter body: (body) Updated Subscriber
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func patchSubscriptionWithToken(_id: String, token: String, body: SFBody4Model, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
+    patchSubscriptionWithTokenWithRequestBuilder(_id: _id, token: token, body: body).execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
-     Updates a Subscription for the User.
-
-     - parameter _id: (path) Subscription ID
-     - parameter token: (query) Subscriber Token
-     - parameter body: (body) Updated Subscriber
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func patchSubscriptionWithToken(_id: String, token: String, body: SFBody4Model, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
-        patchSubscriptionWithTokenWithRequestBuilder(_id: _id, token: token, body: body).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
-
-    /**
-        Updates a Subscription for the User.
-        - PATCH /subscribers/subscriptions/{id}
-        - examples: [{contentType=application/json, example={
-     "createdAt" : "createdAt",
-     "emailAddress" : "emailAddress",
-     "generalMessageEmailSubscribed" : true,
-     "subscription" : [ {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+  /**
+      Updates a Subscription for the User.
+      - PATCH /subscribers/subscriptions/{id}
+      - examples: [{contentType=application/json, example={
+   "createdAt" : "createdAt",
+   "emailAddress" : "emailAddress",
+   "generalMessageEmailSubscribed" : true,
+   "subscription" : [ {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     }, {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   }, {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     } ],
-     "locale" : "locale",
-     "isActive" : true,
-     "updatedAt" : "updatedAt"
-     }}]
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   } ],
+   "locale" : "locale",
+   "isActive" : true,
+   "updatedAt" : "updatedAt"
+   }}]
 
-        - parameter _id: (path) Subscription ID
-        - parameter token: (query) Subscriber Token
-        - parameter body: (body) Updated Subscriber
+      - parameter _id: (path) Subscription ID
+      - parameter token: (query) Subscriber Token
+      - parameter body: (body) Updated Subscriber
 
-        - returns: RequestBuilder<SFInlineResponse20014Model>
-     */
-    open class func patchSubscriptionWithTokenWithRequestBuilder(_id: String, token: String, body: SFBody4Model) -> RequestBuilder<SFInlineResponse20014Model> {
-        var path = "/subscribers/subscriptions/{id}"
-        let _idPreEscape = "\(_id)"
-        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+      - returns: RequestBuilder<SFInlineResponse20014Model>
+   */
+  open class func patchSubscriptionWithTokenWithRequestBuilder(_id: String, token: String, body: SFBody4Model) -> RequestBuilder<SFInlineResponse20014Model> {
+    var path = "/subscribers/subscriptions/{id}"
+    let _idPreEscape = "\(_id)"
+    let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+    path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
 
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "token": token,
-        ])
+    var url = URLComponents(string: URLString)
+    url?.queryItems = APIHelper.mapValuesToQueryItems([
+      "token": token
+    ])
 
-        let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+    let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PATCH", URLString: url?.string ?? URLString, parameters: parameters, isBody: true)
+    return requestBuilder.init(method: "PATCH", URLString: url?.string ?? URLString, parameters: parameters, isBody: true)
+  }
+
+  /**
+   Creates a Subscription for the User.
+
+   - parameter _id: (path) Subscription ID
+   - parameter token: (query) Subscriber Token
+   - parameter body: (body) Updated Subscriber
+   - parameter completion: completion handler to receive the data and the error objects
+   */
+  open class func postSubscriptionWithToken(_id: String, token: String, body: SFBody2Model, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
+    postSubscriptionWithTokenWithRequestBuilder(_id: _id, token: token, body: body).execute { (response, error) -> Void in
+      completion(response?.body, error)
     }
+  }
 
-    /**
-     Creates a Subscription for the User.
-
-     - parameter _id: (path) Subscription ID
-     - parameter token: (query) Subscriber Token
-     - parameter body: (body) Updated Subscriber
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func postSubscriptionWithToken(_id: String, token: String, body: SFBody2Model, completion: @escaping ((_ data: SFInlineResponse20014Model?, _ error: Error?) -> Void)) {
-        postSubscriptionWithTokenWithRequestBuilder(_id: _id, token: token, body: body).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
-
-    /**
-        Creates a Subscription for the User.
-        - POST /subscribers/subscriptions/{id}
-        - examples: [{contentType=application/json, example={
-     "createdAt" : "createdAt",
-     "emailAddress" : "emailAddress",
-     "generalMessageEmailSubscribed" : true,
-     "subscription" : [ {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+  /**
+      Creates a Subscription for the User.
+      - POST /subscribers/subscriptions/{id}
+      - examples: [{contentType=application/json, example={
+   "createdAt" : "createdAt",
+   "emailAddress" : "emailAddress",
+   "generalMessageEmailSubscribed" : true,
+   "subscription" : [ {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     }, {
-       "all" : true,
-       "instances" : {
-         "key" : {
-           "all" : true,
-           "services" : {
-             "key" : {
-               "severities" : {
-                 "major" : true,
-                 "minor" : true,
-                 "maintenances" : true
-               }
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   }, {
+     "all" : true,
+     "instances" : {
+       "key" : {
+         "all" : true,
+         "services" : {
+           "key" : {
+             "severities" : {
+               "major" : true,
+               "minor" : true,
+               "maintenances" : true
              }
            }
          }
-       },
-       "products" : {
-         "key" : {
-           "major" : true,
-           "minor" : true,
-           "maintenances" : true
-         }
        }
-     } ],
-     "locale" : "locale",
-     "isActive" : true,
-     "updatedAt" : "updatedAt"
-     }}]
+     },
+     "products" : {
+       "key" : {
+         "major" : true,
+         "minor" : true,
+         "maintenances" : true
+       }
+     }
+   } ],
+   "locale" : "locale",
+   "isActive" : true,
+   "updatedAt" : "updatedAt"
+   }}]
 
-        - parameter _id: (path) Subscription ID
-        - parameter token: (query) Subscriber Token
-        - parameter body: (body) Updated Subscriber
+      - parameter _id: (path) Subscription ID
+      - parameter token: (query) Subscriber Token
+      - parameter body: (body) Updated Subscriber
 
-        - returns: RequestBuilder<SFInlineResponse20014Model>
-     */
-    open class func postSubscriptionWithTokenWithRequestBuilder(_id: String, token: String, body: SFBody2Model) -> RequestBuilder<SFInlineResponse20014Model> {
-        var path = "/subscribers/subscriptions/{id}"
-        let _idPreEscape = "\(_id)"
-        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+      - returns: RequestBuilder<SFInlineResponse20014Model>
+   */
+  open class func postSubscriptionWithTokenWithRequestBuilder(_id: String, token: String, body: SFBody2Model) -> RequestBuilder<SFInlineResponse20014Model> {
+    var path = "/subscribers/subscriptions/{id}"
+    let _idPreEscape = "\(_id)"
+    let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+    path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+    let URLString = SwaggerClientAPI.basePath + path
+    let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
 
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "token": token,
-        ])
+    var url = URLComponents(string: URLString)
+    url?.queryItems = APIHelper.mapValuesToQueryItems([
+      "token": token
+    ])
 
-        let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+    let requestBuilder: RequestBuilder<SFInlineResponse20014Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: url?.string ?? URLString, parameters: parameters, isBody: true)
-    }
+    return requestBuilder.init(method: "POST", URLString: url?.string ?? URLString, parameters: parameters, isBody: true)
+  }
 }

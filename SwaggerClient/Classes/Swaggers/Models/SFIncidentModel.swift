@@ -8,37 +8,37 @@
 import Foundation
 
 public struct SFIncidentModel: Codable {
-    public var _id: Int
-    public var affectsAll: Bool?
-    public var isCore: Bool?
-    public var serviceKeys: [String]?
-    public var instanceKeys: [String]?
-    public var incidentImpacts: [SFIncidentsIncidentImpactsModel]?
-    public var incidentEvents: [SFIncidentsIncidentEventsModel]?
-    public var createdAt: String?
-    public var updatedAt: String?
+  public var _id: Int
+  public var affectsAll: Bool?
+  public var isCore: Bool?
+  public var serviceKeys: [String]?
+  public var instanceKeys: [String]?
+  public var incidentImpacts: [SFIncidentsIncidentImpactsModel]?
+  public var incidentEvents: [SFIncidentsIncidentEventsModel]?
+  public var createdAt: String?
+  public var updatedAt: String?
 
-    public init(_id: Int, affectsAll: Bool?, isCore: Bool?, serviceKeys: [String]?, instanceKeys: [String]?, incidentImpacts: [SFIncidentsIncidentImpactsModel]?, incidentEvents: [SFIncidentsIncidentEventsModel]?, createdAt: String?, updatedAt: String?) {
-        self._id = _id
-        self.affectsAll = affectsAll
-        self.isCore = isCore
-        self.serviceKeys = serviceKeys
-        self.instanceKeys = instanceKeys
-        self.incidentImpacts = incidentImpacts
-        self.incidentEvents = incidentEvents
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
-    }
+  public init(_id: Int, affectsAll: Bool?, isCore: Bool?, serviceKeys: [String]?, instanceKeys: [String]?, incidentImpacts: [SFIncidentsIncidentImpactsModel]?, incidentEvents: [SFIncidentsIncidentEventsModel]?, createdAt: String?, updatedAt: String?) {
+    self._id = _id
+    self.affectsAll = affectsAll
+    self.isCore = isCore
+    self.serviceKeys = serviceKeys
+    self.instanceKeys = instanceKeys
+    self.incidentImpacts = incidentImpacts
+    self.incidentEvents = incidentEvents
+    self.createdAt = createdAt
+    self.updatedAt = updatedAt
+  }
 
-    public enum CodingKeys: String, CodingKey {
-        case _id = "id"
-        case affectsAll
-        case isCore
-        case serviceKeys
-        case instanceKeys
-        case incidentImpacts = "IncidentImpacts"
-        case incidentEvents = "IncidentEvents"
-        case createdAt
-        case updatedAt
-    }
+  public enum CodingKeys: String, CodingKey {
+    case _id = "id"
+    case affectsAll
+    case isCore
+    case serviceKeys
+    case instanceKeys
+    case incidentImpacts = "IncidentImpacts"
+    case incidentEvents = "IncidentEvents"
+    case createdAt
+    case updatedAt
+  }
 }

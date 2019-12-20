@@ -8,25 +8,25 @@
 import Foundation
 
 public struct SFLocalizationModel: Codable {
-    public var _id: Int?
-    public var modelName: String
-    public var modelKey: String
-    public var modelAttribute: String
-    public var localizedTexts: [SFLocalizationsLocalizedTextsModel]?
+  public var _id: Int?
+  public var modelName: String
+  public var modelKey: String
+  public var modelAttribute: String
+  public var localizedTexts: [SFLocalizationsLocalizedTextsModel]?
 
-    public init(_id: Int?, modelName: String, modelKey: String, modelAttribute: String, localizedTexts: [SFLocalizationsLocalizedTextsModel]?) {
-        self._id = _id
-        self.modelName = modelName
-        self.modelKey = modelKey
-        self.modelAttribute = modelAttribute
-        self.localizedTexts = localizedTexts
-    }
+  public init(_id: Int?, modelName: String, modelKey: String, modelAttribute: String, localizedTexts: [SFLocalizationsLocalizedTextsModel]?) {
+    self._id = _id
+    self.modelName = modelName
+    self.modelKey = modelKey
+    self.modelAttribute = modelAttribute
+    self.localizedTexts = localizedTexts
+  }
 
-    public enum CodingKeys: String, CodingKey {
-        case _id = "id"
-        case modelName
-        case modelKey
-        case modelAttribute
-        case localizedTexts = "LocalizedTexts"
-    }
+  public enum CodingKeys: String, CodingKey {
+    case _id = "id"
+    case modelName
+    case modelKey
+    case modelAttribute
+    case localizedTexts = "LocalizedTexts"
+  }
 }

@@ -8,10 +8,10 @@
 import Foundation
 
 public struct SFUnsubscribeActionModel: Codable {
-    /** Unsubscribe JWT Token */
-    public var token: String?
+  /** Unsubscribe JWT Token */
+  public var token: String?
 
-    public init(token: String?) {
-        self.token = token
-    }
+  public init(token: String?) {
+    self.token = token
+  }
 }

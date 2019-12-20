@@ -8,25 +8,25 @@
 import Foundation
 
 public struct SFMaintenancePreviewModel: Codable {
-    public var _id: Int?
-    public var affectsAll: Bool?
-    public var isCore: Bool?
-    public var serviceKeys: [String]?
-    public var instanceKeys: [String]?
+  public var _id: Int?
+  public var affectsAll: Bool?
+  public var isCore: Bool?
+  public var serviceKeys: [String]?
+  public var instanceKeys: [String]?
 
-    public init(_id: Int?, affectsAll: Bool?, isCore: Bool?, serviceKeys: [String]?, instanceKeys: [String]?) {
-        self._id = _id
-        self.affectsAll = affectsAll
-        self.isCore = isCore
-        self.serviceKeys = serviceKeys
-        self.instanceKeys = instanceKeys
-    }
+  public init(_id: Int?, affectsAll: Bool?, isCore: Bool?, serviceKeys: [String]?, instanceKeys: [String]?) {
+    self._id = _id
+    self.affectsAll = affectsAll
+    self.isCore = isCore
+    self.serviceKeys = serviceKeys
+    self.instanceKeys = instanceKeys
+  }
 
-    public enum CodingKeys: String, CodingKey {
-        case _id = "id"
-        case affectsAll
-        case isCore
-        case serviceKeys
-        case instanceKeys
-    }
+  public enum CodingKeys: String, CodingKey {
+    case _id = "id"
+    case affectsAll
+    case isCore
+    case serviceKeys
+    case instanceKeys
+  }
 }

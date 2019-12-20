@@ -8,12 +8,12 @@
 import Foundation
 
 public struct SFServiceModel: Codable {
-    public var key: String?
-    /** Sets if service is a \&quot;core service\&quot; or not. */
-    public var isCore: Bool?
+  public var key: String?
+  /** Sets if service is a \&quot;core service\&quot; or not. */
+  public var isCore: Bool?
 
-    public init(key: String?, isCore: Bool?) {
-        self.key = key
-        self.isCore = isCore
-    }
+  public init(key: String?, isCore: Bool?) {
+    self.key = key
+    self.isCore = isCore
+  }
 }

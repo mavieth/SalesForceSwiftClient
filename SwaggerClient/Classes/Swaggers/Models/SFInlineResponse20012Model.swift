@@ -8,13 +8,13 @@
 import Foundation
 
 public struct SFInlineResponse20012Model: Codable {
-    public var key: String?
-    public var instanceKey: String?
-    public var aliasType: String?
+  public var key: String?
+  public var instanceKey: String?
+  public var aliasType: String?
 
-    public init(key: String?, instanceKey: String?, aliasType: String?) {
-        self.key = key
-        self.instanceKey = instanceKey
-        self.aliasType = aliasType
-    }
+  public init(key: String?, instanceKey: String?, aliasType: String?) {
+    self.key = key
+    self.instanceKey = instanceKey
+    self.aliasType = aliasType
+  }
 }
