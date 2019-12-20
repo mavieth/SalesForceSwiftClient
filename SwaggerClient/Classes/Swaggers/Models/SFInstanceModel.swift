@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFInstanceModel: Codable {
-
     public var key: String
     public var location: String?
     public var environment: String?
@@ -30,7 +27,4 @@ public struct SFInstanceModel: Codable {
         self.serviceKeys = serviceKeys
         self.tags = tags
     }
-
-
 }
-

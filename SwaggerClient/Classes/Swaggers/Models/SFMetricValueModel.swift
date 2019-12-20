@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFMetricValueModel: Codable {
-
     public var metricValueName: String?
     public var value: Double?
     public var timestamp: String?
@@ -22,7 +19,4 @@ public struct SFMetricValueModel: Codable {
         self.timestamp = timestamp
         self.instanceKey = instanceKey
     }
-
-
 }
-

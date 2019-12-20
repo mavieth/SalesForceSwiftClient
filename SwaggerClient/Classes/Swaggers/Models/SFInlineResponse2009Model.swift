@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFInlineResponse2009Model: Codable {
-
     public var _id: Int?
     public var name: String
     public var code: String
@@ -21,12 +18,9 @@ public struct SFInlineResponse2009Model: Codable {
         self.code = code
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case _id = "id"
         case name
         case code
     }
-
-
 }
-

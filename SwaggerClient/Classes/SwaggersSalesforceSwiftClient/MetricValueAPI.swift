@@ -5,10 +5,8 @@
 // https://github.com/swagger-api/swagger-codegen
 //
 
-import Foundation
 import Alamofire
-
-
+import Foundation
 
 open class MetricValueAPI {
     /**
@@ -19,68 +17,66 @@ open class MetricValueAPI {
      - parameter instanceKey: (query) Filter by Instances (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getMetricValue(startTime: String? = nil, endTime: String? = nil, metricName: String? = nil, instanceKey: String? = nil, completion: @escaping ((_ data: [Any]?,_ error: Error?) -> Void)) {
+    open class func getMetricValue(startTime: String? = nil, endTime: String? = nil, metricName: String? = nil, instanceKey: String? = nil, completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
         getMetricValueWithRequestBuilder(startTime: startTime, endTime: endTime, metricName: metricName, instanceKey: instanceKey).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
-
     /**
      - GET /metricValues
      - Returns an array of MetricValue objects.
      - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
-     
+
      - parameter startTime: (query) Start time for metricValue (optional)
      - parameter endTime: (query) End time for metricValue (optional)
      - parameter metricName: (query) Filter by Name of Metric (optional)
      - parameter instanceKey: (query) Filter by Instances (optional)
 
-     - returns: RequestBuilder<[Any]> 
+     - returns: RequestBuilder<[Any]>
      */
     open class func getMetricValueWithRequestBuilder(startTime: String? = nil, endTime: String? = nil, metricName: String? = nil, instanceKey: String? = nil) -> RequestBuilder<[Any]> {
         let path = "/metricValues"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "startTime": startTime, 
-            "endTime": endTime, 
-            "metricName": metricName, 
-            "instanceKey": instanceKey
+            "startTime": startTime,
+            "endTime": endTime,
+            "metricName": metricName,
+            "instanceKey": instanceKey,
         ])
 
         let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
     }
 
     /**
 
-     - parameter _id: (path) MetricValue Id 
+     - parameter _id: (path) MetricValue Id
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getMetricValueById(_id: String, completion: @escaping ((_ data: SFInlineResponse2008Model?,_ error: Error?) -> Void)) {
+    open class func getMetricValueById(_id: String, completion: @escaping ((_ data: SFInlineResponse2008Model?, _ error: Error?) -> Void)) {
         getMetricValueByIdWithRequestBuilder(_id: _id).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
-
     /**
-     - GET /metricValues/{id}
-     - Returns a MetricValue based on Id.
-     - examples: [{contentType=application/json, example={
-  "metricValueName" : "metricValueName",
-  "value" : 0.8008281904610115,
-  "timestamp" : "timestamp",
-  "instanceKey" : "instanceKey"
-}}]
-     
-     - parameter _id: (path) MetricValue Id 
+        - GET /metricValues/{id}
+        - Returns a MetricValue based on Id.
+        - examples: [{contentType=application/json, example={
+     "metricValueName" : "metricValueName",
+     "value" : 0.8008281904610115,
+     "timestamp" : "timestamp",
+     "instanceKey" : "instanceKey"
+     }}]
 
-     - returns: RequestBuilder<SFInlineResponse2008Model> 
+        - parameter _id: (path) MetricValue Id
+
+        - returns: RequestBuilder<SFInlineResponse2008Model>
      */
     open class func getMetricValueByIdWithRequestBuilder(_id: String) -> RequestBuilder<SFInlineResponse2008Model> {
         var path = "/metricValues/{id}"
@@ -88,13 +84,12 @@ open class MetricValueAPI {
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<SFInlineResponse2008Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
     }
-
 }

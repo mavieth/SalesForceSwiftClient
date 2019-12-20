@@ -5,37 +5,34 @@
 // https://github.com/swagger-api/swagger-codegen
 //
 
-import Foundation
 import Alamofire
-
-
+import Foundation
 
 open class GeneralMessageAPI {
     /**
 
-     - parameter _id: (path) GeneralMessage id 
+     - parameter _id: (path) GeneralMessage id
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getGeneralMessageById(_id: String, completion: @escaping ((_ data: SFInlineResponse2007Model?,_ error: Error?) -> Void)) {
+    open class func getGeneralMessageById(_id: String, completion: @escaping ((_ data: SFInlineResponse2007Model?, _ error: Error?) -> Void)) {
         getGeneralMessageByIdWithRequestBuilder(_id: _id).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
-
     /**
-     - GET /generalMessages/{id}
-     - Returns a GeneralMessage based on Id.
-     - examples: [{contentType=application/json, example={
-  "subject" : "subject",
-  "id" : 0,
-  "body" : "body",
-  "startDate" : "startDate"
-}}]
-     
-     - parameter _id: (path) GeneralMessage id 
+        - GET /generalMessages/{id}
+        - Returns a GeneralMessage based on Id.
+        - examples: [{contentType=application/json, example={
+     "subject" : "subject",
+     "id" : 0,
+     "body" : "body",
+     "startDate" : "startDate"
+     }}]
 
-     - returns: RequestBuilder<SFInlineResponse2007Model> 
+        - parameter _id: (path) GeneralMessage id
+
+        - returns: RequestBuilder<SFInlineResponse2007Model>
      */
     open class func getGeneralMessageByIdWithRequestBuilder(_id: String) -> RequestBuilder<SFInlineResponse2007Model> {
         var path = "/generalMessages/{id}"
@@ -43,13 +40,13 @@ open class GeneralMessageAPI {
         let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<SFInlineResponse2007Model>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
     }
 
     /**
@@ -58,37 +55,35 @@ open class GeneralMessageAPI {
      - parameter offset: (query) Offset for pagination (optional, default to 0)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getGeneralMessages(limit: Double? = nil, offset: Double? = nil, completion: @escaping ((_ data: [Any]?,_ error: Error?) -> Void)) {
+    open class func getGeneralMessages(limit: Double? = nil, offset: Double? = nil, completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
         getGeneralMessagesWithRequestBuilder(limit: limit, offset: offset).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
-
     /**
      - GET /generalMessages
      - Returns an array of GeneralMessage objects.
      - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
-     
+
      - parameter limit: (query) Limit for pagination (optional, default to 10000)
      - parameter offset: (query) Offset for pagination (optional, default to 0)
 
-     - returns: RequestBuilder<[Any]> 
+     - returns: RequestBuilder<[Any]>
      */
     open class func getGeneralMessagesWithRequestBuilder(limit: Double? = nil, offset: Double? = nil) -> RequestBuilder<[Any]> {
         let path = "/generalMessages"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "limit": limit, 
-            "offset": offset
+            "limit": limit,
+            "offset": offset,
         ])
 
         let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
     }
-
 }

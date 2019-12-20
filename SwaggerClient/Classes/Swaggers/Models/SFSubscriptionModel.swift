@@ -7,20 +7,14 @@
 
 import Foundation
 
-
-
 public struct SFSubscriptionModel: Codable {
-
     public var all: Bool?
-    public var instances: [String:SFSubscribeSubscriptionsInstancesModel]?
-    public var products: [String:SFSubscribeSubscriptionsSeveritiesModel]?
+    public var instances: [String: SFSubscribeSubscriptionsInstancesModel]?
+    public var products: [String: SFSubscribeSubscriptionsSeveritiesModel]?
 
-    public init(all: Bool?, instances: [String:SFSubscribeSubscriptionsInstancesModel]?, products: [String:SFSubscribeSubscriptionsSeveritiesModel]?) {
+    public init(all: Bool?, instances: [String: SFSubscribeSubscriptionsInstancesModel]?, products: [String: SFSubscribeSubscriptionsSeveritiesModel]?) {
         self.all = all
         self.instances = instances
         self.products = products
     }
-
-
 }
-

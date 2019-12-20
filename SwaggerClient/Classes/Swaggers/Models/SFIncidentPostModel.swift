@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFIncidentPostModel: Codable {
-
     public var affectsAll: Bool?
     public var serviceKeys: [String]?
     public var instanceKeys: [String]?
@@ -25,14 +22,11 @@ public struct SFIncidentPostModel: Codable {
         self.incidentEvents = incidentEvents
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case affectsAll
         case serviceKeys
         case instanceKeys
         case incidentImpacts = "IncidentImpacts"
         case incidentEvents = "IncidentEvents"
     }
-
-
 }
-

@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFFieldOptionModel: Codable {
-
     public var key: String?
     public var visible: Bool?
 
@@ -18,7 +15,4 @@ public struct SFFieldOptionModel: Codable {
         self.key = key
         self.visible = visible
     }
-
-
 }
-

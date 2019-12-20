@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFFieldModel: Codable {
-
     public var _id: Int?
     public var attribute: String
     public var fieldOptions: [SFIncidentsfieldsFieldOptionsModel]?
@@ -21,12 +18,9 @@ public struct SFFieldModel: Codable {
         self.fieldOptions = fieldOptions
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case _id = "id"
         case attribute
         case fieldOptions = "FieldOptions"
     }
-
-
 }
-

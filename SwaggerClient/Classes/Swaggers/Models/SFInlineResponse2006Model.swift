@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFInlineResponse2006Model: Codable {
-
     public var _id: Int?
     public var affectsAll: Bool?
     public var isCore: Bool?
@@ -25,14 +22,11 @@ public struct SFInlineResponse2006Model: Codable {
         self.instanceKeys = instanceKeys
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case _id = "id"
         case affectsAll
         case isCore
         case serviceKeys
         case instanceKeys
     }
-
-
 }
-

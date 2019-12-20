@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFLocalizationsLocalizedTextsModel: Codable {
-
     public var _id: Int?
     public var text: String?
     public var code: String?
@@ -21,12 +18,9 @@ public struct SFLocalizationsLocalizedTextsModel: Codable {
         self.code = code
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case _id = "id"
         case text
         case code
     }
-
-
 }
-

@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFInlineResponse20010Model: Codable {
-
     public var key: String?
     /** Sets if service is a \&quot;core service\&quot; or not. */
     public var isCore: Bool?
@@ -19,7 +16,4 @@ public struct SFInlineResponse20010Model: Codable {
         self.key = key
         self.isCore = isCore
     }
-
-
 }
-

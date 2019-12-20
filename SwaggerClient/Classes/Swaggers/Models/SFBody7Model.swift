@@ -7,17 +7,11 @@
 
 import Foundation
 
-
-
 public struct SFBody7Model: Codable {
-
     /** Email Address to Send Link to */
     public var emailAddress: String?
 
     public init(emailAddress: String?) {
         self.emailAddress = emailAddress
     }
-
-
 }
-

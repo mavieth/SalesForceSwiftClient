@@ -7,11 +7,8 @@
 
 import Foundation
 
-
-
 public struct SFInlineResponse20011Model: Codable {
-
-    public enum SFStatusModel: String, Codable { 
+    public enum SFStatusModel: String, Codable {
         case ok = "OK"
         case majorIncidentCore = "MAJOR_INCIDENT_CORE"
         case minorIncidentCore = "MINOR_INCIDENT_CORE"
@@ -20,6 +17,7 @@ public struct SFInlineResponse20011Model: Codable {
         case minorIncidentNoncore = "MINOR_INCIDENT_NONCORE"
         case maintenanceNoncore = "MAINTENANCE_NONCORE"
     }
+
     public var key: String
     public var location: String?
     public var environment: String?
@@ -43,7 +41,7 @@ public struct SFInlineResponse20011Model: Codable {
         self.generalMessages = generalMessages
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case key
         case location
         case environment
@@ -54,7 +52,4 @@ public struct SFInlineResponse20011Model: Codable {
         case maintenances = "Maintenances"
         case generalMessages = "GeneralMessages"
     }
-
-
 }
-

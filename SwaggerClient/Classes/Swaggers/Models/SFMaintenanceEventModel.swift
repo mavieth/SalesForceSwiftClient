@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFMaintenanceEventModel: Codable {
-
     public var _id: Int?
     public var type: String
     public var message: String?
@@ -25,14 +22,11 @@ public struct SFMaintenanceEventModel: Codable {
         self.updatedAt = updatedAt
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case _id = "id"
         case type
         case message
         case createdAt
         case updatedAt
     }
-
-
 }
-

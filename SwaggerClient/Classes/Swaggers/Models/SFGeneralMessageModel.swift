@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFGeneralMessageModel: Codable {
-
     public var _id: Int?
     public var subject: String?
     public var body: String?
@@ -23,13 +20,10 @@ public struct SFGeneralMessageModel: Codable {
         self.startDate = startDate
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case _id = "id"
         case subject
         case body
         case startDate
     }
-
-
 }
-

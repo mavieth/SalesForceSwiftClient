@@ -7,16 +7,10 @@
 
 import Foundation
 
-
-
 public struct SFInlineResponse404Model: Codable {
-
     public var message: String?
 
     public init(message: String?) {
         self.message = message
     }
-
-
 }
-

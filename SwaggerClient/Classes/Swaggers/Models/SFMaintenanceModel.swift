@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFMaintenanceModel: Codable {
-
     public var _id: Int?
     public var affectsAll: Bool?
     public var isCore: Bool?
@@ -31,7 +28,7 @@ public struct SFMaintenanceModel: Codable {
         self.updatedAt = updatedAt
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case _id = "id"
         case affectsAll
         case isCore
@@ -41,7 +38,4 @@ public struct SFMaintenanceModel: Codable {
         case createdAt
         case updatedAt
     }
-
-
 }
-

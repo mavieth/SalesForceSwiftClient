@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFSubscriberssubscriptionsidServiceSubscriptionsModel: Codable {
-
     public var serviceKey: String?
     public var major: Bool?
     public var minor: Bool?
@@ -22,7 +19,4 @@ public struct SFSubscriberssubscriptionsidServiceSubscriptionsModel: Codable {
         self.minor = minor
         self.maintenances = maintenances
     }
-
-
 }
-

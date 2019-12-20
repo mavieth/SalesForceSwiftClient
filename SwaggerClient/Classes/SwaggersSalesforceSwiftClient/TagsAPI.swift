@@ -5,114 +5,109 @@
 // https://github.com/swagger-api/swagger-codegen
 //
 
-import Foundation
 import Alamofire
-
-
+import Foundation
 
 open class TagsAPI {
     /**
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getTagTypes(completion: @escaping ((_ data: [Any]?,_ error: Error?) -> Void)) {
+    open class func getTagTypes(completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
         getTagTypesWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
-
 
     /**
      - GET /tagTypes
      - Return all the tag types
      - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
 
-     - returns: RequestBuilder<[Any]> 
+     - returns: RequestBuilder<[Any]>
      */
     open class func getTagTypesWithRequestBuilder() -> RequestBuilder<[Any]> {
         let path = "/tagTypes"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
     }
 
     /**
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getTags(completion: @escaping ((_ data: [SFTagModel]?,_ error: Error?) -> Void)) {
+    open class func getTags(completion: @escaping ((_ data: [SFTagModel]?, _ error: Error?) -> Void)) {
         getTagsWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
-
     /**
-     - GET /tags
-     - Return all the tags
-     - examples: [{contentType=application/json, example=[ {
-  "Instances" : [ null, null ],
-  "id" : 0,
-  "type" : "type",
-  "value" : "value"
-}, {
-  "Instances" : [ null, null ],
-  "id" : 0,
-  "type" : "type",
-  "value" : "value"
-} ]}]
+        - GET /tags
+        - Return all the tags
+        - examples: [{contentType=application/json, example=[ {
+     "Instances" : [ null, null ],
+     "id" : 0,
+     "type" : "type",
+     "value" : "value"
+     }, {
+     "Instances" : [ null, null ],
+     "id" : 0,
+     "type" : "type",
+     "value" : "value"
+     } ]}]
 
-     - returns: RequestBuilder<[SFTagModel]> 
+        - returns: RequestBuilder<[SFTagModel]>
      */
     open class func getTagsWithRequestBuilder() -> RequestBuilder<[SFTagModel]> {
         let path = "/tags"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[SFTagModel]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
     }
 
     /**
 
-     - parameter instanceKey: (path) Instance Key 
+     - parameter instanceKey: (path) Instance Key
      - parameter instances: (query)  (optional, default to false)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getTagsByInstanceKey(instanceKey: String, instances: Bool? = nil, completion: @escaping ((_ data: [SFTagModel]?,_ error: Error?) -> Void)) {
+    open class func getTagsByInstanceKey(instanceKey: String, instances: Bool? = nil, completion: @escaping ((_ data: [SFTagModel]?, _ error: Error?) -> Void)) {
         getTagsByInstanceKeyWithRequestBuilder(instanceKey: instanceKey, instances: instances).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
-
     /**
-     - GET /tags/instance/{instanceKey}
-     - Return all the tags for a given Instance Key
-     - examples: [{contentType=application/json, example=[ {
-  "Instances" : [ null, null ],
-  "id" : 0,
-  "type" : "type",
-  "value" : "value"
-}, {
-  "Instances" : [ null, null ],
-  "id" : 0,
-  "type" : "type",
-  "value" : "value"
-} ]}]
-     
-     - parameter instanceKey: (path) Instance Key 
-     - parameter instances: (query)  (optional, default to false)
+        - GET /tags/instance/{instanceKey}
+        - Return all the tags for a given Instance Key
+        - examples: [{contentType=application/json, example=[ {
+     "Instances" : [ null, null ],
+     "id" : 0,
+     "type" : "type",
+     "value" : "value"
+     }, {
+     "Instances" : [ null, null ],
+     "id" : 0,
+     "type" : "type",
+     "value" : "value"
+     } ]}]
 
-     - returns: RequestBuilder<[SFTagModel]> 
+        - parameter instanceKey: (path) Instance Key
+        - parameter instances: (query)  (optional, default to false)
+
+        - returns: RequestBuilder<[SFTagModel]>
      */
     open class func getTagsByInstanceKeyWithRequestBuilder(instanceKey: String, instances: Bool? = nil) -> RequestBuilder<[SFTagModel]> {
         var path = "/tags/instance/{instanceKey}"
@@ -120,16 +115,15 @@ open class TagsAPI {
         let instanceKeyPostEscape = instanceKeyPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{instanceKey}", with: instanceKeyPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "instances": instances
+            "instances": instances,
         ])
 
         let requestBuilder: RequestBuilder<[SFTagModel]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
     }
-
 }

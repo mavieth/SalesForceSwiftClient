@@ -7,15 +7,13 @@
 
 import Foundation
 
-
-
 public struct SFBody3Model: Codable {
-
-    public enum SFTypeModel: String, Codable { 
+    public enum SFTypeModel: String, Codable {
         case instance = "INSTANCE"
         case product = "PRODUCT"
         case all = "ALL"
     }
+
     public var type: SFTypeModel?
     public var instanceKey: String?
     public var allInstances: Bool?
@@ -36,7 +34,7 @@ public struct SFBody3Model: Codable {
         self.serviceSubscriptions = serviceSubscriptions
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case type
         case instanceKey
         case allInstances
@@ -46,7 +44,4 @@ public struct SFBody3Model: Codable {
         case maintenances
         case serviceSubscriptions = "ServiceSubscriptions"
     }
-
-
 }
-

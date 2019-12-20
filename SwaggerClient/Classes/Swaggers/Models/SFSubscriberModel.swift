@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFSubscriberModel: Codable {
-
     /** Email address of subscriber */
     public var emailAddress: String?
     /** Locale for alerts */
@@ -33,7 +30,4 @@ public struct SFSubscriberModel: Codable {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }
-
-
 }
-

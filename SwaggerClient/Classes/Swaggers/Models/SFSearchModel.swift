@@ -7,12 +7,4 @@
 
 import Foundation
 
-
-
-public struct SFSearchModel: Codable {
-
-
-
-
-}
-
+public struct SFSearchModel: Codable {}

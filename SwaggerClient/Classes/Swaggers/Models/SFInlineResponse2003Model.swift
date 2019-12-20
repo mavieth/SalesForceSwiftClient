@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFInlineResponse2003Model: Codable {
-
     public var key: String?
     public var severity: String?
 
@@ -18,7 +15,4 @@ public struct SFInlineResponse2003Model: Codable {
         self.key = key
         self.severity = severity
     }
-
-
 }
-

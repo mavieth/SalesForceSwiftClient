@@ -7,16 +7,10 @@
 
 import Foundation
 
-
-
 public struct SFServiceSubscriptionModel: Codable {
-
     public var severities: SFSubscribeSubscriptionsSeveritiesModel?
 
     public init(severities: SFSubscribeSubscriptionsSeveritiesModel?) {
         self.severities = severities
     }
-
-
 }
-

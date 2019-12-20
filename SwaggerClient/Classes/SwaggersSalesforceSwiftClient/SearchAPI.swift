@@ -5,32 +5,29 @@
 // https://github.com/swagger-api/swagger-codegen
 //
 
-import Foundation
 import Alamofire
-
-
+import Foundation
 
 open class SearchAPI {
     /**
 
-     - parameter key: (path) Search Key 
+     - parameter key: (path) Search Key
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSearch(key: String, completion: @escaping ((_ data: [Any]?,_ error: Error?) -> Void)) {
+    open class func getSearch(key: String, completion: @escaping ((_ data: [Any]?, _ error: Error?) -> Void)) {
         getSearchWithRequestBuilder(key: key).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
-
     /**
      - GET /search/{key}
      - Return all search results
      - examples: [{contentType=application/json, example=[ "{}", "{}" ]}]
-     
-     - parameter key: (path) Search Key 
 
-     - returns: RequestBuilder<[Any]> 
+     - parameter key: (path) Search Key
+
+     - returns: RequestBuilder<[Any]>
      */
     open class func getSearchWithRequestBuilder(key: String) -> RequestBuilder<[Any]> {
         var path = "/search/{key}"
@@ -38,13 +35,12 @@ open class SearchAPI {
         let keyPostEscape = keyPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{key}", with: keyPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
+        let parameters: [String: Any]? = nil
+
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[Any]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: url?.string ?? URLString, parameters: parameters, isBody: false)
     }
-
 }

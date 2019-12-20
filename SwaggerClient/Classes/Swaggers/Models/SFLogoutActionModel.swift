@@ -7,12 +7,4 @@
 
 import Foundation
 
-
-
-public struct SFLogoutActionModel: Codable {
-
-
-
-
-}
-
+public struct SFLogoutActionModel: Codable {}

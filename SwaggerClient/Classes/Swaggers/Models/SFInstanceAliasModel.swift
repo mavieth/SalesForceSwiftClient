@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFInstanceAliasModel: Codable {
-
     public var key: String?
     public var instanceKey: String?
     public var aliasType: String?
@@ -20,7 +17,4 @@ public struct SFInstanceAliasModel: Codable {
         self.instanceKey = instanceKey
         self.aliasType = aliasType
     }
-
-
 }
-

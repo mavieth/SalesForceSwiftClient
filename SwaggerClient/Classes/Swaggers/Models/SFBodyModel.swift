@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFBodyModel: Codable {
-
     /** Email address of subscriber */
     public var emailAddress: String?
     /** Locale for alerts */
@@ -22,7 +19,4 @@ public struct SFBodyModel: Codable {
         self.locale = locale
         self.subscriptions = subscriptions
     }
-
-
 }
-

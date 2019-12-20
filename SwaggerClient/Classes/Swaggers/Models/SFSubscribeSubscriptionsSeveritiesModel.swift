@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFSubscribeSubscriptionsSeveritiesModel: Codable {
-
     public var major: Bool?
     public var minor: Bool?
     public var maintenances: Bool?
@@ -20,7 +17,4 @@ public struct SFSubscribeSubscriptionsSeveritiesModel: Codable {
         self.minor = minor
         self.maintenances = maintenances
     }
-
-
 }
-

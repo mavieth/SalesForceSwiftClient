@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFSubscribeActionModel: Codable {
-
     /** Email address of subscriber */
     public var emailAddress: String?
     /** Locale for alerts */
@@ -22,7 +19,4 @@ public struct SFSubscribeActionModel: Codable {
         self.locale = locale
         self.subscriptions = subscriptions
     }
-
-
 }
-

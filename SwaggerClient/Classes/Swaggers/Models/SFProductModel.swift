@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFProductModel: Codable {
-
     public var key: String?
     public var parentId: Int?
     public var parentName: String?
@@ -29,7 +26,7 @@ public struct SFProductModel: Codable {
         self.isActive = isActive
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case key
         case parentId
         case parentName
@@ -38,7 +35,4 @@ public struct SFProductModel: Codable {
         case _public = "public"
         case isActive
     }
-
-
 }
-

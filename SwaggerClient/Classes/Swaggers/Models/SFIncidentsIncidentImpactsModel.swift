@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFIncidentsIncidentImpactsModel: Codable {
-
     public var _id: Int?
     public var startTime: String
     public var serviceIssue: String?
@@ -29,7 +26,7 @@ public struct SFIncidentsIncidentImpactsModel: Codable {
         self.updatedAt = updatedAt
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case _id = "id"
         case startTime
         case serviceIssue
@@ -38,7 +35,4 @@ public struct SFIncidentsIncidentImpactsModel: Codable {
         case createdAt
         case updatedAt
     }
-
-
 }
-

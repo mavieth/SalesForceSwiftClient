@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFInlineResponse2008Model: Codable {
-
     public var metricValueName: String?
     public var value: Double?
     public var timestamp: String?
@@ -22,7 +19,4 @@ public struct SFInlineResponse2008Model: Codable {
         self.timestamp = timestamp
         self.instanceKey = instanceKey
     }
-
-
 }
-

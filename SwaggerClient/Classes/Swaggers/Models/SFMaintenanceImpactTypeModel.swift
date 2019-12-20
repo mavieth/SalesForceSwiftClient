@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFMaintenanceImpactTypeModel: Codable {
-
     public var key: String?
     public var severity: String?
 
@@ -18,7 +15,4 @@ public struct SFMaintenanceImpactTypeModel: Codable {
         self.key = key
         self.severity = severity
     }
-
-
 }
-

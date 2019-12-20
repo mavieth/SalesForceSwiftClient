@@ -7,16 +7,10 @@
 
 import Foundation
 
-
-
 public struct SFInlineResponse2004Model: Codable {
-
     public var key: String?
 
     public init(key: String?) {
         self.key = key
     }
-
-
 }
-

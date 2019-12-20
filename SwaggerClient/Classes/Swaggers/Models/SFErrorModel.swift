@@ -7,16 +7,10 @@
 
 import Foundation
 
-
-
 public struct SFErrorModel: Codable {
-
     public var message: String?
 
     public init(message: String?) {
         self.message = message
     }
-
-
 }
-

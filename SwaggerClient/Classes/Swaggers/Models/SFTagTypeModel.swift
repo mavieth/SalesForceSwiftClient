@@ -7,10 +7,7 @@
 
 import Foundation
 
-
-
 public struct SFTagTypeModel: Codable {
-
     public var key: String
     public var tags: [SFTagModel]?
 
@@ -19,11 +16,8 @@ public struct SFTagTypeModel: Codable {
         self.tags = tags
     }
 
-    public enum CodingKeys: String, CodingKey { 
+    public enum CodingKeys: String, CodingKey {
         case key
         case tags = "Tags"
     }
-
-
 }
-

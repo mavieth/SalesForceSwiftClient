@@ -7,18 +7,12 @@
 
 import Foundation
 
-
-
 public struct SFSubscribeSubscriptionsInstancesModel: Codable {
-
     public var all: Bool?
-    public var services: [String:SFSubscribeSubscriptionsServicesModel]?
+    public var services: [String: SFSubscribeSubscriptionsServicesModel]?
 
-    public init(all: Bool?, services: [String:SFSubscribeSubscriptionsServicesModel]?) {
+    public init(all: Bool?, services: [String: SFSubscribeSubscriptionsServicesModel]?) {
         self.all = all
         self.services = services
     }
-
-
 }
-

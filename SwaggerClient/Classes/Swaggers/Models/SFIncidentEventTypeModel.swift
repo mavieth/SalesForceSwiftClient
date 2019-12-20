@@ -7,16 +7,10 @@
 
 import Foundation
 
-
-
 public struct SFIncidentEventTypeModel: Codable {
-
     public var key: String?
 
     public init(key: String?) {
         self.key = key
     }
-
-
 }
-
